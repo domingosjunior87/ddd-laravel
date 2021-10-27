@@ -20,15 +20,11 @@ class CreateUsersTable extends Migration
             $table->string('sexo')->nullable();
             $table->string('cpf', 11)->unique();
             $table->string('rg')->nullable();
-            $table->integer('endereco_id');
-            $table->integer('telefone')->nullable();
-            $table->integer('celular');
+            $table->string('telefone', 10)->nullable();
+            $table->string('celular', 11);
             $table->string('email', 200)->unique();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->rememberToken();
             $table->timestamps();
-            $table->foreign('endereco_id')->references('id')->on('enderecos');
         });
     }
 
