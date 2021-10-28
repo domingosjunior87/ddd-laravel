@@ -28,3 +28,13 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=admin
       - MYSQL_DATABASE=dddlaravel
+
+  vue-ui:
+    build:
+        context: './frontend'
+    ports:
+        - "8080:8080"
+    container_name: vue-auth
+    volumes:
+        - ./frontend:/usr/src/app
+        - /usr/src/app/node_modules
