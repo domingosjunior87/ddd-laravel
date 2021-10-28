@@ -246,7 +246,14 @@ class AuthController extends Controller
 
         $usuario['data_nascimento'] = date('d/m/Y', strtotime($usuario['data_nascimento']));
 
-        return $usuario;
+        $endereco = Auth::user()->endereco->toArray();
+
+        unset($endereco['id']);
+        unset($endereco['user_id']);
+        unset($endereco['created_at']);
+        unset($endereco['updated_at']);
+
+        return $usuario + $endereco;
     }
 
     public function atualizar(Request $request)

@@ -23,21 +23,16 @@ class User extends Authenticatable
         'password'
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array
-     */
     protected $hidden = [
         'password'
     ];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array
-     */
     protected $casts = [
         'data_nascimento' => 'datetime'
     ];
+
+    public function endereco()
+    {
+        return $this->hasOne(Endereco::class);
+    }
 }
